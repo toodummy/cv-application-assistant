@@ -15,6 +15,19 @@ npm run preview
 # http://127.0.0.1:4178 — optional local production-build preview
 ```
 
+## Private desktop preview repair
+
+The parent reported Chrome/automation `ERR_CONNECTION_REFUSED` for loopback although shell HTTP checks were healthy. Box-doctor passed 11/11 checks; inspected browser and shell network namespaces match. No proxy flags were found on inspected browser processes. The root cause is not established and browser QA remains blocked until retested.
+
+A second, static-build-only preview now listens on the actual RFC1918 box interface, **172.30.0.2:5179** (`enp0s3`), not `0.0.0.0` or a public tunnel:
+
+```sh
+./node_modules/.bin/vite preview --host 172.30.0.2 --port 5179 --strictPort
+# http://172.30.0.2:5179/ — private box desktop retry candidate
+```
+
+Shell HTTP 200 is confirmed for this new private URL; real-browser access is not yet confirmed. It serves only the built static demo, not the dev filesystem. Original loopback dev server remains running. No firewall, routing, browser, reverse proxy, remote repository or public deployment was changed. Use only synthetic data for QA. If the private URL also fails, report the preview-access blocker rather than expose it publicly.
+
 The development server must remain local. Do not expose it to the internet or change binding to 0.0.0.0 as a deployment shortcut. No remote was chosen because the user did not name one; `gh api user --jq .login` returned `toodummy`. No GitHub repository, push or PR was created. The CI file is prepared but has **not run on GitHub**.
 
 ## What actually works
