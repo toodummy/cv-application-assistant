@@ -75,6 +75,7 @@ export default function App() {
      <div className="sidebar-bottom"><div className="privacy-icon" aria-hidden="true">◇</div><h3>Private by design, local for now.</h3><p>No account. No tracking. Your CV stays in this browser.</p><span className="prototype-label">LOCAL PROTOTYPE · v0.1</span></div>
    </aside>
    <div className="workspace">
+     <div className="prototype-banner screen-only" role="note">Prototype — sample data only, nothing is submitted, data stays in your browser</div>
      <header className="topbar screen-only"><span><span className="local-dot"/> Local workspace <span className="separator">/</span> {w.mode==='sample'?'Sample mode':'Personal mode'}</span><div className="top-actions"><button className="text-button" onClick={()=>downloadFile(JSON.stringify({version:1,workspace:w},null,2),'careerkit-backup.json','application/json')}>Download backup</button><button className="text-button danger-text" onClick={clearAll}>Clear all</button></div></header>
      <main id="main" className="main" tabIndex={-1}>
        <div className="page-heading screen-only"><div><div className="eyebrow">MAKE YOUR NEXT MOVE</div><h1>{heading[tab].title}</h1><p>{heading[tab].description}</p></div><span className="mode-pill">{w.mode==='sample'?'FICTIONAL SAMPLE':'ON YOUR DEVICE'}</span></div>

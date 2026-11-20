@@ -89,3 +89,14 @@ Original application code is private/unlicensed for public redistribution at thi
 ## Current limitations
 
 No raw resume PDF/DOCX import; manual fields/plain text only. No backend sync, recovery, email notifications, inbox integration, live recommendations, automatic submissions, payments or customer validation. Suggestions handle only a few explicit question categories and may be irrelevant; review always. Gap detection uses a small fixed vocabulary, not all requirements. Very long entries may paginate awkwardly and need editing. Print and DOCX accessibility/layout require real-viewer testing. No commercial outcome is claimed.
+
+## Public GitHub Pages demo (Nov 21, 2026)
+
+At the owner's request a static demo is published on GitHub Pages: https://toodummy.github.io/cv-application-assistant/
+
+- Static files only: no backend, analytics, payments, accounts, live job search or application submission.
+- A banner states: "Prototype — sample data only, nothing is submitted, data stays in your browser".
+- Deployment uses the `gh-pages` branch built with `npm run build:pages` (Vite `base` = `/cv-application-assistant/`). GitHub Pages ignores `public/_headers`, so a CSP `<meta>` tag is also in `index.html`.
+- The CI workflow is kept as `docs/ci-workflow.example.yml`: the publishing token lacks the `workflow` scope, so no Actions workflow was pushed.
+
+Earlier notes about the private box preview (172.30.0.2) describe a local QA session only and are not a public endpoint.

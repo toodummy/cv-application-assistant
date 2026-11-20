@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "build": "tsc --noEmit && vite build",
-    "check": "npm run lint && npm run typecheck && npm test && npm run build"
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "build:pages": "PAGES_BASE=/cv-application-assistant/ vite build"
   },
   "keywords": [],
   "author": "",
