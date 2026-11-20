@@ -7,6 +7,6 @@ export default tseslint.config(
  js.configs.recommended,
  ...tseslint.configs.recommended,
  { files: ['src/**/*.{ts,tsx}'], plugins: {'react-hooks': hooks, 'react-refresh': refresh},
-   languageOptions: { globals: { window: 'readonly', document:'readonly', navigator:'readonly', Blob:'readonly', URL:'readonly', console:'readonly', localStorage:'readonly', setTimeout:'readonly' } },
+   languageOptions: { globals: { window: 'readonly', document:'readonly', navigator:'readonly', Blob:'readonly', URL:'readonly', console:'readonly', localStorage:'readonly', setTimeout:'readonly', clearTimeout:'readonly' } },
    rules: { ...hooks.configs.recommended.rules, 'react-refresh/only-export-components':['warn',{allowConstantExport:true}] } }
 );
